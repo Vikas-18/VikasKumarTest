@@ -1,14 +1,21 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors");
 const app = express();
 const PORT = 5000;
 
+// Enable CORS for all routes
+app.use(cors());
+
 // Connect to MongoDB
 mongoose
-  .connect("mongodb://localhost:27017/admissionDB", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(
+    "mongodb+srv://vikas18:Virat18*@cluster0.s255uxr.mongodb.net/admissiondb",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
+  )
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.error("Error connecting to MongoDB:", err));
 
